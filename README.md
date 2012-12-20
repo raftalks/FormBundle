@@ -1,6 +1,6 @@
-# Form Maker
+# Form Bundle
 
-Form Maker can help buildind forms in PHP. 
+Form Bundle can help buildind forms in PHP. 
 Basic syntax is to think that the first method called creates an element tag and nested methods creates attributes. There are other simple ways to do a lot more with this library.
 
 ## To Use with Laravel 3
@@ -11,7 +11,7 @@ php artisan bundle:install Form
 Register your bundle in Laravel application/bundles.php file by putting the following line inside the array.
 ```
 return array(
-	'form'		=> array('auto'=>true)
+	'formbundle'		=> array('auto'=>true)
 );
 ```
 
