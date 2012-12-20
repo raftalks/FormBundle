@@ -48,16 +48,28 @@ echo Form::make(function($form)
 		$form->div(function($form){ //makes a div container for the enclosed fields
 
 			//creates a text input with label
-			$form->text('username','User Name')->class('myname')->value('some name');  
+			$form->text('username','User Name')
+					->class('myname')
+					->value('some name');  
 
 			//creates a password input with label
 			$form->password('password','Enter Password');
 
-			$form->select('usergroup','User Group')->options(array('admin'=>'admin','manager'=>'manager','user'=>'user'),
-									 array('user','admin'))->multiple('multiple');
+			
+			$form->select('usergroup','User Group')
+			->options(array(
+				'admin'=>'admin',
+				'manager'=>'manager',
+				'user'=>'user'
+				),
+				array('user','admin')
+				)->multiple('multiple');
 
-			$form->setClass('input'); //sets container class
-			$form->setId('UserAccount'); //sets container id
+			//sets container class
+			$form->setClass('input');
+
+			//sets container id
+			$form->setId('UserAccount');
 		});
 
 		// creates an custom tag element like <group>dome</group> 
@@ -70,6 +82,7 @@ echo Form::make(function($form)
 
 			$form->label('Your Address')->for('address'); //create label field separately
 			$form->text('address');
+		
 		});
 		
 		//create Angularjs type input
