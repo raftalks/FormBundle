@@ -6,7 +6,7 @@ Basic syntax is to think that the first method called creates an element tag and
 ## To Use with Laravel 3
 Install via Artisan Bundle Install command using your terminal
 ```
-php artisan bundle:install Form
+php artisan bundle:install FormBundle
 ```
 Register your bundle in Laravel application/bundles.php file by putting the following line inside the array.
 ```
