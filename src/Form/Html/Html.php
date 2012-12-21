@@ -1,18 +1,28 @@
 <?php
-namespace Form;
+namespace Form\Html;
 
-
-class Form
+class Html
 {
 
 	public static $handler;
+
+	public static $decorator;
 
 	
 	public static function resolveFacadeInstance()
 	{
 		if (is_object(static::$handler)) return static::$handler;
 
-		return static::$handler = new FormHandler();
+		$decorator = static::getDecorator();
+
+		return static::$handler = new HtmlHandler($decorator);
+	}
+
+	public static function getDecorator()
+	{
+		if (is_object(static::$decorator)) return static::$decorator;
+
+		return static::$decorator = new TagDecorator();
 	}
 
 

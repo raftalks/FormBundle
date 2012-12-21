@@ -1,6 +1,6 @@
 <?php
 
 Autoloader::namespaces(array(
-  'Form' => Bundle::path('formbundle') . 'Form'
+  'Form' => Bundle::path('formbundle') . 'src/Form'
 ));
 
