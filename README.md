@@ -1,6 +1,7 @@
 # Form Maker
 
-Form Maker can help buildind forms in PHP. Specially developed package for Laravel 4.
+Form Maker can help buildind forms in PHP. 
+Basic syntax is to think that the first method called creates an element tag and nested methods creates attributes. There are other simple ways to do a lot more with this library.
 
 #Updated to version 1.2.0
 ###Change Log
@@ -9,17 +10,35 @@ Form Maker can help buildind forms in PHP. Specially developed package for Larav
 - Added Support to include Template structure for advanced UI interface
 
 ###Upgrade from version 1.0.0
-- Download the updates using Composer update command 
-- In Laravel 4, add the additional class Html class alias
-
-## To Use with Laravel 4
-Install the package via composer.
-Now we need to put the class Alias inside L4 app/config/app.php file.
-Find the aliases key which should be below the providers key and put the following inside its array.
-```php
-	'Form'	 => 'Form\Form',
-	'Html'	 => 'Html\Html', //required to be added for version 1.2.0
+- Download the updates using Artisan bundle update command 
 ```
+php artisan bundle:upgrade formbundle
+```
+
+## To Use with Laravel 3
+Install via Artisan Bundle Install command
+```
+php artisan bundle:install FormBundle
+```
+Now we need to put the class Alias inside L3 application/config/application.php file.
+Find the aliases key and put the following inside its array.
+
+If you do not need to use core Form class you can comment out and put the following line
+```php
+	//'Form'       	=> 'Laravel\\Form', <- commented out the core Form class
+	  'Form'	 	=> 'Form\\Form',
+```
+
+If you consider to use core Laravel Form, then you can give any name for the class alias. For example:
+```php
+	'Form'       	=> 'Laravel\\Form', //core Form class available
+	'XForm'	 		=> 'Form\\Form', 
+```
+However, if you change the alias, you will need to call that class Alias instead of calling to Form.
+```
+  XForm::make(function($form){ ...do what u want...}); //calling alias class
+```
+
 Now you can try using the Form::make(function($form){ ...here you can put the form fields ...});
 
 
@@ -75,7 +94,6 @@ Following shows you how this package library is used to make forms.
 // will include more use cases later
 
 ```
-
 ###version 1.0.0 features
 ```php
 echo Form::make(function($form)
